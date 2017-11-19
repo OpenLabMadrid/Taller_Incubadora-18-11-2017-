@@ -3,7 +3,7 @@
 
 #define DHTPIN 3    // Sensor connected to the pin 3
 
-#define RELE 2  // Relay connected to the pin 3
+#define RELE 2  // Relay connected to the pin 2
 
 #define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
 
