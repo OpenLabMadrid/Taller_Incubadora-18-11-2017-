@@ -3,13 +3,15 @@
 
 #define DHTPIN 3    // Sensor connected to the pin 3
 
+#define RELE 2  // Relay connected to the pin 3
+
 #define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
 
 DHT dht(DHTPIN, DHTTYPE);
 
 float e;  //error variable
 
-float T; //Time that Light bulb is turned down in an interval of 10 seconds
+float T; //Time that Light bulb is turned down in an interval of 5 seconds
 
 int objetivo = 35; //target temperature
 
@@ -24,9 +26,9 @@ void setup() {
 
   dht.begin();
 
-  pinMode(2,OUTPUT); // Relay connected to the pin 3
+  pinMode(RELE,OUTPUT); 
 
-  digitalWrite(2,HIGH);
+  digitalWrite(RELE,HIGH);
 
 }
 
@@ -60,11 +62,11 @@ void loop() {
 
   {
 
-     digitalWrite(2,HIGH);
+     digitalWrite(RELE,HIGH);
 
      delay(5000*(1-T));
 
-     digitalWrite(2,LOW);
+     digitalWrite(RELE,LOW);
 
      delay(5000*T);
 
@@ -74,7 +76,7 @@ void loop() {
 
     delay(2000);
 
-    digitalWrite(2,LOW);
+    digitalWrite(RELE,LOW);
 
    }
 
